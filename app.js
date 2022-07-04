@@ -47,6 +47,15 @@ bot.onText(/inline/, (msg, match) => {
 	});
 });
 
+bot.on('callback_query', (msg) => {
+	console.log('callback query');
+	console.log(msg);
+	
+	const chatId = msg.message.chat.id;
+
+	bot.sendMessage(chatId, 'You have chosen: ' + msg.data);
+});
+
 // bot.on('message', (msg) => {
 //   const chatId = msg.chat.id;
 //   bot.sendMessage(chatId, 'Received your message');
